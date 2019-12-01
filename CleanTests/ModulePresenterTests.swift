@@ -11,18 +11,10 @@ import XCTest
 
 class ModulePresenterTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
     func testThatModulePresenterUpdatesViewWithResponseText() {
         // arrange
         let modulePresenter = ModulePresenter()
-        let view = MockModuleDisplayLogic()
+        let view = ModuleDisplayLogicSpy()
         view.presenter = modulePresenter
         modulePresenter.view = view
         let moduleResponse = ModuleResponse(text: "test", imageData: nil)
@@ -36,7 +28,7 @@ class ModulePresenterTests: XCTestCase {
     func testThatModulePresenterUpdatesViewWithGivenImageData() {
         // arrange
         let modulePresenter = ModulePresenter()
-        let view = MockModuleDisplayLogic()
+        let view = ModuleDisplayLogicSpy()
         view.presenter = modulePresenter
         modulePresenter.view = view
         let moduleResponse = ModuleResponse(text: "test", imageData: UIImage(named: "homer")?.pngData())
@@ -50,7 +42,7 @@ class ModulePresenterTests: XCTestCase {
     func testThatModulePresenterDoesNotSetViewImageIfImageDataIsNil() {
         // arrange
         let modulePresenter = ModulePresenter()
-        let view = MockModuleDisplayLogic()
+        let view = ModuleDisplayLogicSpy()
         view.presenter = modulePresenter
         modulePresenter.view = view
         let moduleResponse = ModuleResponse(text: "test", imageData: nil)
@@ -63,7 +55,7 @@ class ModulePresenterTests: XCTestCase {
 
 }
 
-class MockModuleDisplayLogic: ModuleDisplayLogic {
+class ModuleDisplayLogicSpy: ModuleDisplayLogic {
     var model: ModuleViewModel!
     var presenter: ModulePresenter?
     func update(_ viewModel: ModuleViewModel) {

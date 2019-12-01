@@ -11,18 +11,10 @@ import XCTest
 
 class ModuleInteractorTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testThatModuleInteractorReturnsOnlyTextIfRequestKindIsText() {
         // arrange
         let moduleInteractor = ModuleInteractor()
-        let presentation = MockModulePresentationLogic()
+        let presentation = ModulePresentationLogicSpy()
         moduleInteractor.presenter = presentation
         let moduleRequest = ModuleRequest(.text)
         // act
@@ -35,7 +27,7 @@ class ModuleInteractorTests: XCTestCase {
     func testThatModuleInteractorOnlySetsImageIfRequestKindIsImage() {
         // arrange
         let moduleInteractor = ModuleInteractor()
-        let presentation = MockModulePresentationLogic()
+        let presentation = ModulePresentationLogicSpy()
         moduleInteractor.presenter = presentation
         let moduleRequest = ModuleRequest(.image)
         // act
@@ -48,7 +40,7 @@ class ModuleInteractorTests: XCTestCase {
     func testThatModuleInteractorSetsBothImageAndTextIfRequestKindIsAll() {
         // arrange
         let moduleInteractor = ModuleInteractor()
-        let presentation = MockModulePresentationLogic()
+        let presentation = ModulePresentationLogicSpy()
         moduleInteractor.presenter = presentation
         let moduleRequest = ModuleRequest(.all)
         // act
@@ -60,7 +52,7 @@ class ModuleInteractorTests: XCTestCase {
     
 }
 
-class MockModulePresentationLogic: ModulePresentationLogic {
+class ModulePresentationLogicSpy: ModulePresentationLogic {
     var moduleResponse: ModuleResponse?
     func update(_ response: ModuleResponse) {
         moduleResponse = response
