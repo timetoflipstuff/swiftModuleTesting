@@ -12,7 +12,7 @@ import UIKit
 final class ModuleInteractor {
 	var presenter: ModulePresentationLogic?
     
-    //let bundle = Bundle(for: ModuleInteractor.self)
+    let bundle = Bundle(for: ModuleInteractor.self)
 }
 
 // MARK: - <ModuleBusinessLogic>
@@ -34,11 +34,11 @@ extension ModuleInteractor: ModuleBusinessLogic {
 
 private extension ModuleInteractor {
     func imageData() -> Data? {
-        //if let path = bundle.path(forResource: "homer", ofType: "png") {
-        if let imageData = UIImage(named: "homer")?.pngData() {
+//        if let path = bundle.path(forResource: "homer", ofType: "png") {
+            if let imageData = UIImage(named: "homer", in: bundle, compatibleWith: nil)?.pngData() {
                 return imageData
             }
-        //}
+//        }
         return nil
     }
 }

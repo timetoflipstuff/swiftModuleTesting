@@ -31,7 +31,7 @@ class ModulePresenterTests: XCTestCase {
         let view = ModuleDisplayLogicSpy()
         view.presenter = modulePresenter
         modulePresenter.view = view
-        let moduleResponse = ModuleResponse(text: "test", imageData: UIImage(named: "homer")?.pngData())
+        let moduleResponse = ModuleResponse(text: "test", imageData: UIImage(named: "homer", in: Bundle(for: ModuleInteractor.self), compatibleWith: nil)?.pngData())
         // act
         modulePresenter.update(moduleResponse)
         let image = view.model.image

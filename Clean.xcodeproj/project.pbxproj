@@ -20,6 +20,15 @@
 		3650B93123902F8A000BC54E /* ModuleEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650B93023902F8A000BC54E /* ModuleEntities.swift */; };
 		E65D2CAA239067B400FA1BE8 /* ModuleInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D2CA9239067B400FA1BE8 /* ModuleInteractorTests.swift */; };
 		E65D2CAC2390696E00FA1BE8 /* ModulePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D2CAB2390696E00FA1BE8 /* ModulePresenterTests.swift */; };
+		E6AE59722396DDCC007C01E3 /* ModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650B92C23902D3D000BC54E /* ModuleAssembly.swift */; };
+		E6AE59732396DDCE007C01E3 /* ModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650B92323902C8F000BC54E /* ModuleViewController.swift */; };
+		E6AE59742396DDD1007C01E3 /* ModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650B92523902C9D000BC54E /* ModuleInteractor.swift */; };
+		E6AE59752396DDD4007C01E3 /* ModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650B92723902CA8000BC54E /* ModulePresenter.swift */; };
+		E6AE59762396DDD7007C01E3 /* ModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650B92923902CCF000BC54E /* ModuleProtocols.swift */; };
+		E6AE59772396DDDA007C01E3 /* ModuleEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650B93023902F8A000BC54E /* ModuleEntities.swift */; };
+		E6AE59782396DDDC007C01E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650B91023902C15000BC54E /* AppDelegate.swift */; };
+		E6AE59792396DDDF007C01E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650B91223902C15000BC54E /* ViewController.swift */; };
+		E6AE597A2396DDE5007C01E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3650B91723902C19000BC54E /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,8 +103,8 @@
 				3650B92223902C75000BC54E /* Module */,
 				3650B91023902C15000BC54E /* AppDelegate.swift */,
 				3650B91223902C15000BC54E /* ViewController.swift */,
-				3650B91423902C15000BC54E /* Main.storyboard */,
 				3650B91723902C19000BC54E /* Assets.xcassets */,
+				3650B91423902C15000BC54E /* Main.storyboard */,
 				3650B91923902C19000BC54E /* LaunchScreen.storyboard */,
 				3650B91C23902C19000BC54E /* Info.plist */,
 			);
@@ -186,7 +195,6 @@
 					};
 					E65D2C9E2390676200FA1BE8 = {
 						CreatedOnToolsVersion = 10.3;
-						TestTargetID = 3650B90C23902C15000BC54E;
 					};
 				};
 			};
@@ -224,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6AE597A2396DDE5007C01E3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,8 +258,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6AE59792396DDDF007C01E3 /* ViewController.swift in Sources */,
+				E6AE59762396DDD7007C01E3 /* ModuleProtocols.swift in Sources */,
+				E6AE59752396DDD4007C01E3 /* ModulePresenter.swift in Sources */,
+				E6AE59772396DDDA007C01E3 /* ModuleEntities.swift in Sources */,
+				E6AE59782396DDDC007C01E3 /* AppDelegate.swift in Sources */,
 				E65D2CAC2390696E00FA1BE8 /* ModulePresenterTests.swift in Sources */,
 				E65D2CAA239067B400FA1BE8 /* ModuleInteractorTests.swift in Sources */,
+				E6AE59742396DDD1007C01E3 /* ModuleInteractor.swift in Sources */,
+				E6AE59732396DDCE007C01E3 /* ModuleViewController.swift in Sources */,
+				E6AE59722396DDCC007C01E3 /* ModuleAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +456,6 @@
 		E65D2CA62390676300FA1BE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CleanTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
@@ -452,14 +468,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clean.app/Clean";
 			};
 			name = Debug;
 		};
 		E65D2CA72390676300FA1BE8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CleanTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
@@ -472,7 +486,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clean.app/Clean";
 			};
 			name = Release;
 		};
